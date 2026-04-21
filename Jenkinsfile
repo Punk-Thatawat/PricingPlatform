@@ -54,6 +54,9 @@ spec:
     stage('Checkout App Repo') {
       steps {
         checkout scm
+        sh '''
+          git config --global --add safe.directory "${WORKSPACE}"
+        '''
         script {
           env.SHORT_SHA = sh(script: 'git rev-parse --short=7 HEAD', returnStdout: true).trim()
           env.IMAGE_TAG = "prod-${env.BUILD_NUMBER}-${env.SHORT_SHA}"
