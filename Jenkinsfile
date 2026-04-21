@@ -110,8 +110,9 @@ spec:
     stage('Checkout Manifest Repo') {
       steps {
         container('git') {
-          sshagent(credentials: ["${GIT_CREDENTIALS_ID}"]) {
+          withCredentials([sshUserPrivateKey(credentialsId: "${GIT_CREDENTIALS_ID}", keyFileVariable: 'SSH_KEY_FILE', usernameVariable: 'SSH_USERNAME')]) {
             sh '''
+              export GIT_SSH_COMMAND="ssh -i ${SSH_KEY_FILE} -o StrictHostKeyChecking=no"
               rm -rf "${WORKSPACE}/${MANIFEST_REPO_DIR}"
               git clone --branch "${MANIFEST_REPO_BRANCH}" "${MANIFEST_REPO_URL}" "${WORKSPACE}/${MANIFEST_REPO_DIR}"
               git config --global --add safe.directory "${WORKSPACE}/${MANIFEST_REPO_DIR}"
@@ -138,8 +139,9 @@ spec:
       steps {
         container('git') {
           dir("${MANIFEST_REPO_DIR}") {
-            sshagent(credentials: ["${GIT_CREDENTIALS_ID}"]) {
+            withCredentials([sshUserPrivateKey(credentialsId: "${GIT_CREDENTIALS_ID}", keyFileVariable: 'SSH_KEY_FILE', usernameVariable: 'SSH_USERNAME')]) {
               sh '''
+                export GIT_SSH_COMMAND="ssh -i ${SSH_KEY_FILE} -o StrictHostKeyChecking=no"
                 git config user.name "jenkins"
                 git config user.email "jenkins@local"
 
