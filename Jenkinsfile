@@ -109,8 +109,14 @@ spec:
 
     stage('Checkout Manifest Repo') {
       steps {
-        dir("${MANIFEST_REPO_DIR}") {
-          git branch: "${MANIFEST_REPO_BRANCH}", credentialsId: "${GIT_CREDENTIALS_ID}", url: "${MANIFEST_REPO_URL}"
+        container('git') {
+          sshagent(credentials: ["${GIT_CREDENTIALS_ID}"]) {
+            sh '''
+              rm -rf "${WORKSPACE}/${MANIFEST_REPO_DIR}"
+              git clone --branch "${MANIFEST_REPO_BRANCH}" "${MANIFEST_REPO_URL}" "${WORKSPACE}/${MANIFEST_REPO_DIR}"
+              git config --global --add safe.directory "${WORKSPACE}/${MANIFEST_REPO_DIR}"
+            '''
+          }
         }
       }
     }
