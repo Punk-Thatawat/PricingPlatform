@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
         - name: pricing-api
-          image: pricingplatform/pricing-api:prod
+          imagePullPolicy: Always
           env:
             - name: ASPNETCORE_ENVIRONMENT
               value: Production

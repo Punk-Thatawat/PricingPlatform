@@ -3,8 +3,24 @@ namespace: pricing-platform
 resources:
   - ../../base
 
+images:
+  # Jenkins should update these tags in the manifest repo after pushing images.
+  - name: guhodza551/pricingplatform-pricingservice
+    newName: guhodza551/pricingplatform-pricingservice
+    newTag: prod-20260421-0000000
+  - name: guhodza551/pricingplatform-ruleservice
+    newName: guhodza551/pricingplatform-ruleservice
+    newTag: prod-20260421-0000000
+  - name: guhodza551/pricingplatform-apigateway
+    newName: guhodza551/pricingplatform-apigateway
+    newTag: prod-20260421-0000000
+
 patches:
   - path: pricing-api-patch.yaml
   - path: rule-api-patch.yaml
   - path: api-gateway-patch.yaml
   - path: ingress-patch.yaml
+    target:
+      kind: Ingress
+      name: pricing-platform
+      namespace: pricing-platform

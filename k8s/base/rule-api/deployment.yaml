@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: rule-api
-          image: pricingplatform/rule-api:latest
+          image: guhodza551/pricingplatform-ruleservice:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080

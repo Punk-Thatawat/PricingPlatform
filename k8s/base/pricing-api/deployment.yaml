@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: pricing-api
-          image: pricingplatform/pricing-api:latest
+          image: guhodza551/pricingplatform-pricingservice:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
