@@ -78,7 +78,7 @@ spec:
       }
     }
 
-    stage('Build pricing-api') {
+    stage('Build And Push Images') {
       steps {
         container('kaniko') {
           sh '''
@@ -88,30 +88,14 @@ spec:
               --destination "${REGISTRY}/${DOCKERHUB_ORG}/pricingplatform-pricingservice:${IMAGE_TAG}" \
               --cache=true \
               --compressed-caching=false
-          '''
-        }
-      }
-    }
 
-    stage('Build rule-api') {
-      steps {
-        container('kaniko') {
-          sh '''
             /kaniko/executor \
               --context "${WORKSPACE}" \
               --dockerfile "${WORKSPACE}/src/Services/RuleService/Rule.API/Dockerfile" \
               --destination "${REGISTRY}/${DOCKERHUB_ORG}/pricingplatform-ruleservice:${IMAGE_TAG}" \
               --cache=true \
               --compressed-caching=false
-          '''
-        }
-      }
-    }
 
-    stage('Build api-gateway') {
-      steps {
-        container('kaniko') {
-          sh '''
             /kaniko/executor \
               --context "${WORKSPACE}" \
               --dockerfile "${WORKSPACE}/src/ApiGateway/ApiGateway/Dockerfile" \
