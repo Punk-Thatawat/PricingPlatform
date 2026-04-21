@@ -16,6 +16,13 @@ spec:
       command:
         - /busybox/cat
       tty: true
+      resources:
+        requests:
+          cpu: "500m"
+          memory: "1Gi"
+        limits:
+          cpu: "1500m"
+          memory: "2Gi"
       volumeMounts:
         - name: docker-config
           mountPath: /kaniko/.docker
@@ -24,6 +31,13 @@ spec:
       command:
         - cat
       tty: true
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
+        limits:
+          cpu: "300m"
+          memory: "256Mi"
   volumes:
     - name: docker-config
       secret:
@@ -72,7 +86,9 @@ spec:
               --context "${WORKSPACE}" \
               --dockerfile "${WORKSPACE}/src/Services/PricingService/Pricing.API/Dockerfile" \
               --destination "${REGISTRY}/${DOCKERHUB_ORG}/pricingplatform-pricingservice:${IMAGE_TAG}" \
-              --cache=true
+              --cache=true \
+              --compressed-caching=false \
+              --cleanup
           '''
         }
       }
@@ -86,7 +102,9 @@ spec:
               --context "${WORKSPACE}" \
               --dockerfile "${WORKSPACE}/src/Services/RuleService/Rule.API/Dockerfile" \
               --destination "${REGISTRY}/${DOCKERHUB_ORG}/pricingplatform-ruleservice:${IMAGE_TAG}" \
-              --cache=true
+              --cache=true \
+              --compressed-caching=false \
+              --cleanup
           '''
         }
       }
@@ -100,7 +118,9 @@ spec:
               --context "${WORKSPACE}" \
               --dockerfile "${WORKSPACE}/src/ApiGateway/ApiGateway/Dockerfile" \
               --destination "${REGISTRY}/${DOCKERHUB_ORG}/pricingplatform-apigateway:${IMAGE_TAG}" \
-              --cache=true
+              --cache=true \
+              --compressed-caching=false \
+              --cleanup
           '''
         }
       }

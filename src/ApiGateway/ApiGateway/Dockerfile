@@ -2,9 +2,10 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
 COPY . .
-RUN dotnet restore "PricingPlatform.slnx" -p:Configuration=Release
-RUN dotnet build "PricingPlatform.slnx" -c Release --no-restore
-RUN dotnet publish "src/ApiGateway/ApiGateway/ApiGateway.csproj" -c Release -o /app/publish /p:UseAppHost=false --no-build
+RUN dotnet publish "src/ApiGateway/ApiGateway/ApiGateway.csproj" \
+    -c Release \
+    -o /app/publish \
+    /p:UseAppHost=false
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
 WORKDIR /app
