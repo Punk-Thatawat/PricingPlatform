@@ -1,0 +1,18 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: pricing-api
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["pricing-api:8080"]
+
+  - job_name: rule-api
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["rule-api:8080"]
+
+  - job_name: api-gateway
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["api-gateway:8080"]

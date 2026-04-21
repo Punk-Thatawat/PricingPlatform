@@ -1,0 +1,34 @@
+# Build outputs
+**/bin/
+**/obj/
+
+# IDE and user-specific files
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+
+# Test and coverage artifacts
+TestResults/
+coverage/
+coverage.*
+*.coverage
+*.coveragexml
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+
+# Local tool/cache folders
+.dotnet/
+BenchmarkDotNet.Artifacts/
+
+# Local Docker compose files
+docker-compose.yml
+docker-compose.dev.yml
+
+# OS-generated files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,9 @@
+resources:
+  - namespace/namespace.yaml
+  - pricing-api/deployment.yaml
+  - pricing-api/service.yaml
+  - rule-api/deployment.yaml
+  - rule-api/service.yaml
+  - api-gateway/deployment.yaml
+  - api-gateway/service.yaml
+  - ingress/ingress.yaml

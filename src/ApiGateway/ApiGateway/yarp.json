@@ -1,0 +1,66 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "pricingRoute": {
+        "ClusterId": "pricingCluster",
+        "Match": {
+          "Path": "/api/pricing/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathRemovePrefix": "/api/pricing"
+          }
+        ]
+      },
+      "pricingOpenApiRoute": {
+        "ClusterId": "pricingCluster",
+        "Match": {
+          "Path": "/openapi/pricing/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/openapi/{**catch-all}"
+          }
+        ]
+      },
+      "ruleRoute": {
+        "ClusterId": "ruleCluster",
+        "Match": {
+          "Path": "/api/rules/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathRemovePrefix": "/api/rules"
+          }
+        ]
+      },
+      "ruleOpenApiRoute": {
+        "ClusterId": "ruleCluster",
+        "Match": {
+          "Path": "/openapi/rules/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/openapi/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "pricingCluster": {
+        "Destinations": {
+          "pricingDestination": {
+            "Address": "http://localhost:5026/"
+          }
+        }
+      },
+      "ruleCluster": {
+        "Destinations": {
+          "ruleDestination": {
+            "Address": "http://localhost:5182/"
+          }
+        }
+      }
+    }
+  }
+}

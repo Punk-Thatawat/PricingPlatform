@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pricing-api
+  # namespace: pricing-platform
+spec:
+  selector:
+    app: pricing-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080

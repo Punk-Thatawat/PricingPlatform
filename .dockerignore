@@ -1,0 +1,10 @@
+**/bin/
+**/obj/
+**/.vs/
+**/.vscode/
+.git/
+.gitignore
+README.md
+New Text Document.txt
+.publish-*.log
+.dotnet/

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pricing-api
+  # namespace: pricing-platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pricing-api
+  template:
+    metadata:
+      labels:
+        app: pricing-api
+    spec:
+      containers:
+        - name: pricing-api
+          image: pricingplatform/pricing-api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ASPNETCORE_URLS
+              value: http://+:8080
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10

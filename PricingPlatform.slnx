@@ -1,0 +1,50 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/ApiGateway/">
+    <Project Path="src/ApiGateway/ApiGateway/ApiGateway.csproj" />
+  </Folder>
+  <Folder Name="/src/BuildingBlocks/" />
+  <Folder Name="/src/BuildingBlocks/Observability/" />
+  <Folder Name="/src/BuildingBlocks/Observability/Extensions/">
+    <Project Path="src/BuildingBlocks/Observability/Extensions/Extensions/Extensions.csproj" />
+  </Folder>
+  <Folder Name="/src/BuildingBlocks/Observability/HealthChecks/">
+    <Project Path="src/BuildingBlocks/Observability/HealthChecks/HealthChecks/HealthChecks.csproj" />
+  </Folder>
+  <Folder Name="/src/BuildingBlocks/Observability/Logging/">
+    <Project Path="src/BuildingBlocks/Observability/Logging/Logging/Logging.csproj" />
+  </Folder>
+  <Folder Name="/src/BuildingBlocks/Observability/Metrics/">
+    <Project Path="src/BuildingBlocks/Observability/Metrics/Metrics/Metrics.csproj" />
+  </Folder>
+  <Folder Name="/src/BuildingBlocks/Observability/Tracing/">
+    <Project Path="src/BuildingBlocks/Observability/Tracing/Tracing/Tracing.csproj" />
+  </Folder>
+  <Folder Name="/src/Contracts/">
+    <Project Path="src/Contracts/Pricing.Contracts/Pricing.Contracts.csproj" />
+    <Project Path="src/Contracts/Rule.Contracts/Rule.Contracts.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/" />
+  <Folder Name="/src/Services/PricingService/">
+    <Project Path="src/Services/PricingService/Pricing.API/Pricing.API.csproj" />
+    <Project Path="src/Services/PricingService/Pricing.Application/Pricing.Application.csproj" />
+    <Project Path="src/Services/PricingService/Pricing.Domain/Pricing.Domain.csproj" />
+    <Project Path="src/Services/PricingService/Pricing.Infrastructure/Pricing.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/RuleService/">
+    <Project Path="src/Services/RuleService/Rule.API/Rule.API.csproj" />
+    <Project Path="src/Services/RuleService/Rule.Application/Rule.Application.csproj" />
+    <Project Path="src/Services/RuleService/Rule.Domain/Rule.Domain.csproj" />
+    <Project Path="src/Services/RuleService/Rule.Infrastructure/Rule.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Tests/" />
+  <Folder Name="/src/Tests/UnitTests/">
+    <Project Path="src/Tests/UnitTests/PricingPlatform.UnitTests.csproj" />
+  </Folder>
+  <Folder Name="/src/Tests/IntegrationTests/">
+    <Project Path="src/Tests/IntegrationTests/PricingPlatform.IntegrationTests.csproj" />
+  </Folder>
+  <Folder Name="/src/Tests/PerformanceTests/">
+    <Project Path="src/Tests/PerformanceTests/PricingPlatform.PerformanceTests.csproj" />
+  </Folder>
+</Solution>

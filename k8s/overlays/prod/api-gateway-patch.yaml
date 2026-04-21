@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: api-gateway
+          image: pricingplatform/api-gateway:prod
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production

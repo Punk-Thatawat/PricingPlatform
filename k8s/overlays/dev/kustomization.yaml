@@ -1,0 +1,14 @@
+namespace: pricing-platform
+
+resources:
+  - ../../base
+
+patches:
+  - path: pricing-api-patch.yaml
+  - path: rule-api-patch.yaml
+  - path: api-gateway-patch.yaml
+  - path: ingress-patch.yaml
+    target:
+      kind: Ingress
+      name: pricing-platform
+      namespace: pricing-platform

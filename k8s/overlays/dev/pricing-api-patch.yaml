@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pricing-api
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: pricing-api
+          image: pricingplatform/pricing-api:dev
+          imagePullPolicy: Never
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rule.Application\Rule.Application.csproj" />
+    <ProjectReference Include="..\Rule.Domain\Rule.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Contracts\Rule.Contracts\Rule.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\Observability\Metrics\Metrics\Metrics.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\Observability\Tracing\Tracing\Tracing.csproj" />
+  </ItemGroup>
+
+</Project>

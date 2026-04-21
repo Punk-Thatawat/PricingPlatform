@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rule-api
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: rule-api
+          image: pricingplatform/rule-api:dev
+          imagePullPolicy: Never
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
