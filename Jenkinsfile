@@ -87,8 +87,7 @@ spec:
               --dockerfile "${WORKSPACE}/src/Services/PricingService/Pricing.API/Dockerfile" \
               --destination "${REGISTRY}/${DOCKERHUB_ORG}/pricingplatform-pricingservice:${IMAGE_TAG}" \
               --cache=true \
-              --compressed-caching=false \
-              --cleanup
+              --compressed-caching=false
           '''
         }
       }
@@ -103,8 +102,7 @@ spec:
               --dockerfile "${WORKSPACE}/src/Services/RuleService/Rule.API/Dockerfile" \
               --destination "${REGISTRY}/${DOCKERHUB_ORG}/pricingplatform-ruleservice:${IMAGE_TAG}" \
               --cache=true \
-              --compressed-caching=false \
-              --cleanup
+              --compressed-caching=false
           '''
         }
       }
@@ -119,8 +117,7 @@ spec:
               --dockerfile "${WORKSPACE}/src/ApiGateway/ApiGateway/Dockerfile" \
               --destination "${REGISTRY}/${DOCKERHUB_ORG}/pricingplatform-apigateway:${IMAGE_TAG}" \
               --cache=true \
-              --compressed-caching=false \
-              --cleanup
+              --compressed-caching=false
           '''
         }
       }
